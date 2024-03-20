@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>AIT-GPT</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="query_box">
+        <h3 class="web_title">AIT-GPT</h3>
+        <form action="/" method="POST">
+            <label for="Enter Prompt">Enter Prompt:</label>
+            <br>
+            <div class="prompt_inner">
+                <input type="text" name="prompt_question" id="fill_in" value="{{ prompt_question }}" required="required">
+            </div>
+            <input id="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</div>    
+
+{% if answer %}
+<div class="answer">
+    <p>{{ answer }}</p>
+</div>
+{% endif %}
+
+{% endblock %}
