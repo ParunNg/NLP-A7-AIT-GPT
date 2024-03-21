@@ -1,5 +1,5 @@
 .env
+docs
 /.vscode
-/docs
 /models
 /vector-store

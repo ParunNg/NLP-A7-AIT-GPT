@@ -19,10 +19,17 @@
     </div>
 </div>    
 
-{% if answer %}
+{% if answer and ref_list %}
 <div class="answer">
-    <p>{{ answer }}</p>
+    <p><b>Answer:</b> {{ answer }}</p>
+    <h4>Here's some documents relevant to this topic...</h4>
+    <ul>
+        {% for ref in ref_list %}
+        <li>{{ ref['ref_text'] }} (<a href="{{ url_for('static', filename='docs/') }}{{ ref['ref_link'] }}">link</a>)</li>
+        {% endfor %}
+    </ul>
 </div>
+
 {% endif %}
 
 {% endblock %}

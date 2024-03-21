@@ -115,11 +115,20 @@ def index():
         prompt_question = request.form['prompt_question']
         output = chain({"question": prompt_question})
         answer = output['answer'].replace('<pad> ', '').replace('\n', '')
+        ref_list = []
 
-        return render_template('home.html', prompt_question=prompt_question, answer=answer)
+        for doc in output['source_documents']:
+            metadata = doc.metadata
+            filename = metadata['source'].split('/')[-1]
+            page_no = metadata['page'] + 1
+            total_pages = metadata['total_pages']
+            ref_list.append({"ref_text": f"{filename} - page {page_no}/{total_pages}",
+                             "ref_link": f"{filename}#page={page_no}"})
+
+        return render_template('home.html', prompt_question=prompt_question, answer=answer, ref_list=ref_list)
 
     else:
-        return render_template('home.html', prompt_question="", answer=None)
+        return render_template('home.html', prompt_question="", answer=None, ref_list=None)
 
 if __name__ == '__main__':
     app.run(debug=True)
