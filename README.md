@@ -8,12 +8,12 @@ The source document used in this project is the AIT student handbook as of 8 Aug
 
 ![demonstration](./figures/app_demonstrate.png)
 
-## How to use:
+## How to Use:
 1) Run the Python script `app.py` located in `NLP-A7-AIT-GPT/app/` directory.
 2) Open your browser and go to `127.0.0.1:5000` to access the site locally.
 3) Input the question in the provided input box then once you click submit, the answer as well as reference links to the source document will be displayed below.
 
-## How it works
+## How It Works
 
 1. The source document is first chunked where each chunk are transformed into vectors using the text embedding models. The vectors are then stored as embeddings.
 2. When the user asked a question, the question is then transfor into a vector which is then used to compute for cosine similarity with the stored embeddings in order to retrieve the document chunks that are most relevant to the user question.
