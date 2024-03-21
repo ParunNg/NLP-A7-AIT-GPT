@@ -15,7 +15,7 @@ The source document used in this project is the AIT student handbook as of 8 Aug
 
 ## How It Works
 
-1. The source document is first chunked where each chunk are transformed into vectors using the text embedding models. The vectors are then stored as embeddings.
+1. The source document is first chunked where each chunk are transformed into vectors using the text embedding model. The vectors are then stored as embeddings.
 2. When the user asked a question, the question is then transfor into a vector which is then used to compute for cosine similarity with the stored embeddings in order to retrieve the document chunks that are most relevant to the user question.
 3. Based on our designed prompt template, The user question and the most related document chunks are inputted into the model as question and context respectively. The model then generates the answer.
 
